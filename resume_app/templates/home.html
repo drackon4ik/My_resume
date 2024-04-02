@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <link
+     rel="stylesheet"
+     href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        .i-am-centered {
+            margin: auto;
+            max-width: 300px;
+            padding-top: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="i-am-centered">
+            <div class="form-group">
+                <label> First name </label>
+                {{ form.first_name }}
+            </div>
+            <div class="form-group">
+                <label> Last name </label>
+                {{ form.last_name }}
+            </div>
+            <div class="form-group">
+                <label> Skills </label>
+                {{ form.skills }}
+            </div>
+            <div class="form-group">
+                <label> Education </label>
+                {{ form.education }}
+            </div>
+            <div class="form-group">
+                <label> Email </label>
+                {{ form.email }}
+            </div>
+    </div>
+</body>
+
+</html>

@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'resume_app',
     'crispy_forms',
+    'crispy_bootstrap4',
+
 
 ]
 
@@ -123,6 +125,8 @@ STATICFILES_DIRS = [
     '/var/www/static/',
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

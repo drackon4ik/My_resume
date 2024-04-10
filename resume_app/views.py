@@ -4,10 +4,11 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, reverse
 from .forms import CustomerForm, NewUserForm
+from .models import Customer
 
 
 def home(request):
-    return HttpResponse("Worked")
+    return render(request, 'toform.html')
 
 
 def register_request(request):
@@ -30,17 +31,20 @@ def register_request(request):
 
 def resume(request):
     if request.method == 'POST':
-        print("lalal")
         form = CustomerForm(request.POST)
         if form.is_valid():
-            form.save()
+            form_save = form.save(commit=False)
+            form_save.user = request.user
+            form_save.save()
+
             first_name = form.cleaned_data.get('first_name')
             second_name = form.cleaned_data.get('second_name')
             skills = form.cleaned_data.get('skills')
             education = form.cleaned_data.get('education')
             email = form.cleaned_data.get('email')
             return render(request, 'template1.html', context={'first_name': first_name, 'second_name': second_name,
-                                                              'skills': skills, 'education': education, 'email': email})
+                                                              'skills': skills, 'education': education,
+                                                              'email': email})
     else:
         form = CustomerForm
         return render(request, 'index.html', context={'form': form})
